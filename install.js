@@ -15,3 +15,16 @@ connection.connect((err) => {
     }
     console.log("Connected to mySQL!");
 })
+
+// Skapa tabell 
+connection.query(`CREATE TABLE workexperiences (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    compayname VARCHAR(255),
+    jobtitle VARCHAR(255),
+    location VARCHAR(255),
+    startdate DATE,
+    enddate DATE,
+    description TEXT)`, (err, results) => {
+        if(err) throw err;
+        console.log("Table workexperiences created: " + results);
+    });
