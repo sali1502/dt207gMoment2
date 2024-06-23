@@ -17,6 +17,12 @@ connection.connect((err) => {
 })
 
 // Skapa tabell 
+connection.query("DROP TABLE IF EXISTS workexperiences;",
+    (err, results) => {
+        if(err) throw err;
+        console.log("Table workexperiences deleted")
+    });
+
 connection.query(`CREATE TABLE workexperiences (
     id INT AUTO_INCREMENT PRIMARY KEY,
     compayname VARCHAR(255),
