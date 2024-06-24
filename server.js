@@ -1,4 +1,4 @@
-const express = require ("express");
+const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql");
 require("dotenv").config();
@@ -8,10 +8,26 @@ const port = process.env.PORT || 3000;
 
 // Routes
 app.get("/api", (req, res) => {
-res.json({message: "Welcome to my API"});
+    res.json({ message: "Welcome to my API" });
 });
 
-// Anslut till databas
+app.get("/api/workexperiences", (req, res) => {
+    res.json({ message: "Get workexperiences" });
+});
+
+app.post("/api/workexperiences", (req, res) => {
+    res.json({ message: "Workexperience added" });
+});
+
+app.put("/api/workexperiences/:id", (req, res) => {
+    res.json({ message: "Workexperience uppdated: " + req.params.id });
+});
+
+app.delete("/api/workexperiences/:id", (req, res) => {
+    res.json({ message: "Workexperience deleted: " + req.params.id });
+});
+
+// Anslut till databasen
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -20,7 +36,7 @@ const connection = mysql.createConnection({
 });
 
 connection.connect((err) => {
-    if(err) {
+    if (err) {
         console.log("Connection failed: " + err);
     }
     console.log("Connected to database");
