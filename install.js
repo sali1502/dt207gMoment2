@@ -2,14 +2,14 @@ const mysql = require("mysql");
 
 // Anslutningsinställningar
 const connection = mysql.createConnection({
-host: "localhost",
-user: "dt207gM2",
-password: "password",
-database: "dt207gM2"
+    host: "localhost",
+    user: "dt207gM2",
+    password: "password",
+    database: "dt207gM2"
 });
 
 connection.connect((err) => {
-    if(err) {
+    if (err) {
         console.error("connection failed: " + err);
         return;
     }
@@ -19,10 +19,10 @@ connection.connect((err) => {
 // Skapa tabell 
 connection.query("DROP TABLE IF EXISTS workexperiences;",
     (err, results) => {
-        if(err) throw err;
+        if (err) throw err;
         console.log("Table workexperiences deleted")
     });
-
+    
 connection.query(`CREATE TABLE workexperiences (
     id INT AUTO_INCREMENT PRIMARY KEY,
     compayname VARCHAR(255),
@@ -31,6 +31,6 @@ connection.query(`CREATE TABLE workexperiences (
     startdate DATE,
     enddate DATE,
     description TEXT)`, (err, results) => {
-        if(err) throw err;
-        console.log("Table workexperiences created: " + results);
-    });
+    if (err) throw err;
+    console.log("Table workexperiences created: " + results);
+});
