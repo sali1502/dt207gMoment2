@@ -1,8 +1,10 @@
 /* Moment 2 DT207G VT24, Åsa Lindskog, sali1502@student.miun.se */
 
+
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const app = express();
@@ -11,6 +13,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Anslut till databasen
 const connection = mysql.createConnection({
@@ -82,7 +85,7 @@ app.post("/api/workexperiences", (req, res) => {
             res.status(500).json({ error: "Något gick fel: " + err });
             return;
         }
-        
+
         console.log("Fråga skapad: " + results);
 
         let workexperience = {
@@ -100,12 +103,49 @@ app.post("/api/workexperiences", (req, res) => {
 
 // Uppdatera arbetserfarenhet
 app.put("/api/workexperiences/:id", (req, res) => {
-    res.json({ message: "Arbetserfarenhet uppdaterad: " + req.params.id });
+    let id = req.params.id;
+    let compayname = req.body.compayname;
+    let jobtitle = req.body.jobtitle;
+    let location = req.body.location;
+    let startdate = req.body.startdate;
+    let enddate = req.body.enddate;
+    let description = req.body.description;
+
+    if (!compayname || !jobtitle || !location || !startdate || !enddate || !description) {
+        res.status(400).json({ message: "Alla fält behöver fyllas i!" });
+        return;
+    }
+
+    connection.query(`UPDATE workexperiences SET compayname=?, jobtitle=?, location=?, startdate=?, enddate=?, description=? WHERE id=?`, [compayname, jobtitle, location, startdate, enddate, description, id], (err, results) => {
+        if (err) {
+            res.status(500).json({ error: "Något har gått fel: " + err });
+            return;
+        }
+
+        if (results.rows === 0) {
+            res.status(404).json({ message: "Ingen arbetserfarenhet kund uppdateras" });
+        } else {
+            res.json({ message: "Arbetserfarenhet uppdaterad", id: id });
+        }
+    });
 });
 
 // Radera arbetserfarenhet
 app.delete("/api/workexperiences/:id", (req, res) => {
-    res.json({ message: "Arbetserfarenhet raderad: " + req.params.id });
+
+    let id = req.params.id;
+
+    connection.query(`DELETE FROM workexperiences WHERE id=?;`, [id], (err, results) => {
+        if (err) {
+            res.status(500).json({ error: "Något har gått fel: " + err });
+            return;
+        }
+        if (results.rows === 0) {
+            res.status(404).json({ message: "Ingen arbetserfarenhet kunde raderas" });
+        } else {
+            res.json({ message: "Arbetserfarenhet raderad", id: id });
+        }
+    });
 });
 
 // Starta server
