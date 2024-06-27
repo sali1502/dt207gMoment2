@@ -27,10 +27,13 @@
     padding-top: 4vh;
 }
 
-.form-container {
+.text-container {
+    text-align: center;
     width: 100%;
-    margin-top: 2vh;
-    margin-bottom: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 0 auto 0 auto;
 }
 
 .list-container {
@@ -38,16 +41,7 @@
     width: 100%;
     padding-bottom: 5vh;
     padding-left: 30px;
-    padding-right: 30px;
-    margin: 0 auto 0 auto;
-}
-
-.text-container {
-    text-align: center;
-    width: 100%;
-    padding-bottom: 5vh;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-right: 50px;
     margin: 0 auto 0 auto;
 }
 
@@ -69,8 +63,9 @@ h1 {
     font-size: 2.2em;
     margin-bottom: 4vh;
     margin-top: 4vh;
+    margin-left: 50px;
     color: rgb(0, 105, 79);
-    text-align: center;
+    text-align: left;
 }
 
 .button {
@@ -111,7 +106,7 @@ nav a {
 ul {
     list-style-type: none;
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     overflow: hidden;
 }
@@ -139,11 +134,12 @@ p {
     line-height: 2em;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
+    text-align: left;
 }
 
 /* Styling av formulär */
 input[type=text] {
-    width: 80%;
+    width: 100%;
     padding: 5px;
     border-radius: 4px;
     margin-top: 0.5vh;
@@ -154,4 +150,8 @@ input[type=text] {
     color: red;
     font-weight: bold;
     line-height: 6em;
+}
+
+form {
+    text-align: left;
 }
