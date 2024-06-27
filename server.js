@@ -82,10 +82,11 @@ app.post("/api/workexperiences", (req, res) => {
             res.status(500).json({ error: "Något gick fel: " + err });
             return;
         }
+        
         console.log("Fråga skapad: " + results);
 
         let workexperience = {
-            companyname: compayname,
+            compayname: compayname,
             jobtitle: jobtitle,
             location: location,
             startdate: startdate,
