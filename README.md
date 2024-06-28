@@ -15,7 +15,7 @@ Kör installations-skriptet install.js. Installations-skriptet skapar en databas
 </tr>
 <tr>
   <td>workexperiences</td>
-  <td>id (int(11), compayname (varchar(255), jobtitle(varchar(255), location(varchar(255), startdate(DATE), enddate(DATE), description(TEXT)</td>
+  <td><strong>id</strong> (int(11), <strong>compayname</strong>(varchar(255), <strong>jobtitle</strong>(varchar(255), <strong>location</strong>(varchar(255), <strong>startdate</strong>(date), <strong>enddate</strong>(date), <strong>description</strong>(text)</td>
 </tr>
 </table>
 
@@ -57,12 +57,13 @@ Nedan finns beskrivet hur man kan nå APIet på olika vis:
 
 Ett objekt med arbetserfarenhet retuneras/skickas som JSON med följande struktur:
 
-{  
-  "compayname": "Naturapoteket",
-  "jobtitle": "Säljare",
-  "location": "Stockholm",
-  "startdate": "2001-08-01",
-  "enddate": "2006-07-30",
-  "description": "Säljare och rådgivare i hälsokostbutik"
-  }
-  
+```
+   {
+     "compayname": "Naturapoteket",
+     "jobtitle": "Säljare",
+     "location": "Stockholm",
+     "startdate": "2001-08-01",
+     "enddate": "2006-07-30",
+     "description": "Säljare och rådgivare i hälsokostbutik"
+   }
+```
