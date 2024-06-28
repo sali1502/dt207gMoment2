@@ -31,11 +31,26 @@ connection.connect((err) => {
 });
 
 /* ROUTES */
-app.get("/api", (req, res) => {
-    res.json({ message: "Välkommen till mitt API" });
+
+// Hämta arbetserfarenhet med id
+app.get("/api/workexperiences/:id", (req, res) => {
+
+    let id = req.params.id;
+
+    connection.query(`SELECT compayname, jobtitle, location, startdate, enddate, description FROM workexperiences WHERE id=?;`, [id], (err, results) => {
+        if (err) {
+            res.status(500).json({ error: "Något har gått fel: " + err });
+            return;
+        }
+        if (results.rows === 0) {
+            res.status(404).json({ message: "Ingen arbetserfarenhet kunde hittas" });
+        } else {
+            res.json(results);
+        }
+    });
 });
 
-// Hämta arbetserfarenhet 
+// Hämta arbetserfarenhet (alla)
 app.get("/api/workexperiences", (req, res) => {
     connection.query(`SELECT * FROM workexperiences;`, (err, results) => {
         if (err) {
@@ -101,7 +116,7 @@ app.post("/api/workexperiences", (req, res) => {
     });
 });
 
-// Uppdatera arbetserfarenhet
+// Uppdatera arbetserfarenhet med id
 app.put("/api/workexperiences/:id", (req, res) => {
     let id = req.params.id;
     let compayname = req.body.compayname;
@@ -130,7 +145,7 @@ app.put("/api/workexperiences/:id", (req, res) => {
     });
 });
 
-// Radera arbetserfarenhet
+// Radera arbetserfarenhet med id
 app.delete("/api/workexperiences/:id", (req, res) => {
 
     let id = req.params.id;
@@ -148,7 +163,7 @@ app.delete("/api/workexperiences/:id", (req, res) => {
     });
 });
 
-// Starta server
+// Starta applikationen
 app.listen(port, () => {
     console.log("Server startad på port: " + port);
 });

@@ -3,23 +3,37 @@
 let url = "http://127.0.0.1:3000/api/workexperiences";
 
 getWork();
-createWork("Expressen", "Grafiker", "Stockholm", "1989-12-01", "1993-02-15", "Grafiker/redigerare");
-updateWork(9, "Expressen", "Grafiker", "Stockholm", "1989-08-01", "1993-02-15", "Grafiker/redigerare");
-deleteWork(41);
+getWorkId(54);
+createWork("Life", "Butiksansvarig", "Stockholm", "2006-08-01", "2014-08-01", "Ansvarig för butikens dagliga drift");
+updateWork(55, "Expressen", "Grafiker", "Stockholm", "1989-08-01", "1993-02-15", "Grafiker/redigerare");
+deleteWork(53);
 
 
-// Funktion för att hämta arbetserfarenheter
+// Funktion för att hämta arbetserfarenheter (alla)
 async function getWork() {
     try {
         const response = await fetch(url);
         const data = await response.json();
         console.table(data);
     } catch (error) {
-        console.error("Ett fel uppstod vid hämtning av arbetserfarenheter: ", error);
+        console.error("Ett fel uppstod vid hämtning av arbetserfarenhet: ", error);
     }
 }
 
-// Funktion för att lägga till arbetserfarenheter
+// Funktion för att hämta arbetserfarenhet med id
+async function getWorkId(id) {
+    try {
+        const response = await fetch(`${url}/${id}`, {
+            method: "GET"
+        });
+        const data = await response.json();
+        console.table(data);
+    } catch (error) {
+        console.error("Ett fel uppstod vid hämtning av arbetserfarenheter med id: ", error);
+    }
+}
+
+// Funktion för att lägga till arbetserfarenhet
 async function createWork(compayname, jobtitle, location, startdate, enddate, description) {
 
     let workexperience = {
@@ -48,7 +62,7 @@ async function createWork(compayname, jobtitle, location, startdate, enddate, de
     }
 }
 
-// Funktion för att uppdatera arbetserfarenheter
+// Funktion för att uppdatera arbetserfarenhet
 async function updateWork(id, compayname, jobtitle, location, startdate, enddate, description) {
 
     let workexperience = {
@@ -75,7 +89,7 @@ async function updateWork(id, compayname, jobtitle, location, startdate, enddate
     }
 }
 
-// Funktion för att radera arbetserfarenheter
+// Funktion för att radera arbetserfarenhet
 async function deleteWork(id) {
     try {
         const response = await fetch(`${url}/${id}`, {
