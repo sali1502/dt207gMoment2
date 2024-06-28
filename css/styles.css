@@ -18,6 +18,19 @@
     opacity: 0.8;
 }
 
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100%;
+    height: auto;
+    font-size: 0.9em;
+    color: rgb(0, 0, 0);
+    background-image: url('images/poppy.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+
 .menu-container {
     width: 100%;
     background-color: rgb(255, 255, 255);
@@ -45,19 +58,6 @@
     margin: 0 auto 0 auto;
 }
 
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    width: 100%;
-    height: auto;
-    font-size: 0.9em;
-    color: rgb(0, 0, 0);
-    background-image: url('images/poppy.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
-    margin: 0 auto 0 auto;
-}
-
 h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 2.2em;
@@ -68,39 +68,14 @@ h1 {
     text-align: left;
 }
 
-.button {
-    background-color: rgb(161, 65, 65);
-    color: white;
-    margin-top: 0.5vh;
-    border-radius: 30px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-right: 4px;
-    padding-left: 4px;
-    font-size: 0.8em;
-}
-
-a {
-    color: rgb(0, 0, 0);
-}
-
-nav a {
-    text-decoration: none;
-}
-
-.tdBtn {
-    background-color: rgb(161, 65, 65);
-    color: white;
-    margin-top: 0.5vh;
-    border-radius: 30px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-right: 4px;
-    padding-left: 4px;
-    font-size: 0.8em;
+p {
+    margin-top: 2vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1em;
     line-height: 2em;
-    text-decoration: none;
-    border: solid black 1px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    text-align: left;
 }
 
 ul {
@@ -121,23 +96,59 @@ li a {
     background-color: white;
 }
 
-/* Bakgrund på aktiv länk */
+a {
+    color: rgb(0, 0, 0);
+}
+
+nav a {
+    text-decoration: none;
+}
+
 .active {
     background-color: rgb(0, 105, 79);
     color: white;
 }
 
-p {
-    margin-top: 2vh;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1em;
+.list-container ul {
+    list-style-type: none;
+    margin: 0 auto;
+}
+
+.list-container ul {
+    float: left;
+}
+
+.button {
+    background-color: rgb(161, 65, 65);
+    color: white;
+    margin-top: 0.5vh;
+    border-radius: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    font-size: 0.8em;
+}
+
+.tdBtn {
+    background-color: rgb(161, 65, 65);
+    color: white;
+    margin-top: 0.5vh;
+    border-radius: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    font-size: 0.8em;
     line-height: 2em;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: solid black 1px;
+}
+
+form {
     text-align: left;
 }
 
-/* Styling av formulär */
 input[type=text] {
     width: 100%;
     padding: 5px;
@@ -150,8 +161,4 @@ input[type=text] {
     color: red;
     font-weight: bold;
     line-height: 6em;
-}
-
-form {
-    text-align: left;
 }
