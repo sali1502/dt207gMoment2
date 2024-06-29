@@ -43,7 +43,7 @@ app.get("/api/workexperiences/:id", (req, res) => {
             return;
         }
         if (results.rows === 0) {
-            res.status(404).json({ message: "Ingen arbetserfarenhet kunde hittas" });
+            res.status(404).json({ message: "Ingen arbetserfarenhet kunde hittas." });
         } else {
             res.json(results);
         }
@@ -58,7 +58,7 @@ app.get("/api/workexperiences", (req, res) => {
             return;
         }
         if (results.length === 0) {
-            res.status(404).json({ message: "Ingen arbetserfarenhet kunde hittas" });
+            res.status(404).json({ message: "Ingen arbetserfarenhet kunde hittas." });
         } else {
             res.json(results);
         }
@@ -85,8 +85,8 @@ app.post("/api/workexperiences", (req, res) => {
     if (!compayname || !jobtitle || !location || !startdate || !enddate || !description) {
 
         // Felmeddelanden
-        errors.message = "Alla fält behöver vara ifyllda!";
-        errors.detail = "Inkludera företagsnamn, titel, ort, startdatum, slutdatum och beskrivning i JSON-format";
+        errors.message = "Alla fält behöver vara ifyllda.";
+        errors.detail = "Inkludera företagsnamn, titel, ort, startdatum, slutdatum och beskrivning i JSON-format.";
 
         // Svarskod
         errors.https_response.message = "Bad request";
@@ -127,7 +127,7 @@ app.put("/api/workexperiences/:id", (req, res) => {
     let description = req.body.description;
 
     if (!compayname || !jobtitle || !location || !startdate || !enddate || !description) {
-        res.status(400).json({ message: "Alla fält behöver fyllas i!" });
+        res.status(400).json({ message: "Alla fält behöver fyllas i." });
         return;
     }
 
@@ -138,7 +138,7 @@ app.put("/api/workexperiences/:id", (req, res) => {
         }
 
         if (results.rows === 0) {
-            res.status(404).json({ message: "Ingen arbetserfarenhet kund uppdateras" });
+            res.status(404).json({ message: "Ingen arbetserfarenhet kunde uppdateras." });
         } else {
             res.json({ message: "Arbetserfarenhet uppdaterad", id: id });
         }
@@ -156,7 +156,7 @@ app.delete("/api/workexperiences/:id", (req, res) => {
             return;
         }
         if (results.rows === 0) {
-            res.status(404).json({ message: "Ingen arbetserfarenhet kunde raderas" });
+            res.status(404).json({ message: "Ingen arbetserfarenhet kunde raderas." });
         } else {
             res.json({ message: "Arbetserfarenhet raderad", id: id });
         }

@@ -10,17 +10,17 @@ const connection = mysql.createConnection({
 
 connection.connect((err) => {
     if (err) {
-        console.error("connection failed: " + err);
+        console.error("Anslutningen misslyckades: " + err);
         return;
     }
-    console.log("Connected to mySQL!");
+    console.log("Ansluten till mySQL!");
 })
 
 // Skapa tabell 
 connection.query("DROP TABLE IF EXISTS workexperiences;",
     (err, results) => {
         if (err) throw err;
-        console.log("Table workexperiences deleted")
+        console.log("Tabell workexperiences raderad")
     });
 
 connection.query(`CREATE TABLE workexperiences (
@@ -32,5 +32,5 @@ connection.query(`CREATE TABLE workexperiences (
     enddate DATE,
     description TEXT)`, (err, results) => {
     if (err) throw err;
-    console.log("Table workexperiences created: " + results);
+    console.log("Tabell workexperiences skapad: " + results);
 });
