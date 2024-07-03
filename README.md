@@ -4,6 +4,9 @@ I detta repository finns kod för ett REST API byggt med Express.<br>
 APIets syfte är att skapa ett CV där arbetserfarenhet ska kunna läggas till, visas, uppdateras och raderas.<br>
 Denna funktionalitet skapas med CRUD (Create, Read, Update, Delete).<br>
 
+## Länk
+En liveversion av APIet finns tillgänglig på följande URL: http://127.0.0.1:3000/api/workexperiences<br>
+
 ## Installation, databas
 APIet använder en MySQL-databas. Klona ner källkodsfilerna, kör kommando npm install för att installera nödvändiga npm-paket.<br>
 Kör installations-skriptet install.js. Installations-skriptet skapar en databastabell enlig nedan:
