@@ -1,5 +1,4 @@
-/* Moment 2 DT207G VT24, Åsa Lindskog, sali1502@student.miun.se */
-
+/* Moment 2.1 DT207G VT24, Åsa Lindskog, sali1502@student.miun.se */
 
 const express = require("express");
 const cors = require("cors");
@@ -42,7 +41,7 @@ app.get("/api/workexperiences/:id", (req, res) => {
             res.status(500).json({ error: "Något har gått fel: " + err });
             return;
         }
-        if (results.rows === 0) {
+        if (results.affectedRows === 0) {
             res.status(404).json({ message: "Ingen arbetserfarenhet kunde hittas." });
         } else {
             res.json(results);
@@ -137,7 +136,7 @@ app.put("/api/workexperiences/:id", (req, res) => {
             return;
         }
 
-        if (results.rows === 0) {
+        if (results.affectedRows === 0) {
             res.status(404).json({ message: "Ingen arbetserfarenhet kunde uppdateras." });
         } else {
             res.json({ message: "Arbetserfarenhet uppdaterad", id: id });
@@ -155,7 +154,7 @@ app.delete("/api/workexperiences/:id", (req, res) => {
             res.status(500).json({ error: "Något har gått fel: " + err });
             return;
         }
-        if (results.rows === 0) {
+        if (results.affectedRows === 0) {
             res.status(404).json({ message: "Ingen arbetserfarenhet kunde raderas." });
         } else {
             res.json({ message: "Arbetserfarenhet raderad", id: id });
